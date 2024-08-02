@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Sree+Krushnadevaraya&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-bg-color: #2B2E3C;
+            --secondary-bg-color: #aaa;
+            --accent-color: #4A7DAD;
+            --text-color: white;
+            --icon-bg-color: #3C3F4B;
+        }
+
+        body {
+            background-color: var(--primary-bg-color);
+            color: var(--text-color);
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Sree Krushnadevaraya', 'Georgia', serif;
+            font-weight: bold;
+            font-size: 3em;
+            margin-top: 2em;
+        }
+
+        .tagline {
+            font-size: 1.5em;
+            text-align: left;
+            position: relative; /* Add position relative */
+        }
+
+        .dropdown-trigger {
+            color: var(--secondary-bg-color);
+            cursor: pointer;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .dropdown {
+            background-color: transparent;
+            color: var(--text-color);
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            display: none;
+            position: absolute;
+            left: 0;
+            z-index: 1; /* Ensure dropdown is above other elements */
+            overflow: hidden; /* Needed to contain the gradient overlay */
+            max-height: 150px; /* Adjust as needed */
+        }
+
+        /* Gradient overlay */
+        .dropdown:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 150px; /* Height of the fading effect */
+            background: linear-gradient(transparent, var(--primary-bg-color));
+            pointer-events: none; /* Ensures clicks go through the overlay */
+        }
+
+
+        .help-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 25px;
+            height: 25px;
+            background-color: #3C3F4B;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1em;
+            color: white;
+        }
+
+        .down-arrow {
+            width: 0; 
+            height: 0; 
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 7px solid var(--accent-color); /* Adjust color as needed */
+            display: inline-block;
+            margin-left: 5px;
+            vertical-align: middle;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .dropdown-trigger:hover {
+            text-decoration: underline var(--accent-color);
+        }
+
+        .dropdown-trigger:hover::after {
+            content: none;
+        }
+
+        /* Show dropdown on hover */
+        .tagline:hover .dropdown, .dropdown:hover  {
+            display: block;
+        }
+
+        .dropdown-trigger.active .down-arrow {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+          Lobby
+          <span class="dropdown-trigger">
+                vote
+                <div class="down-arrow"></div>
+                <div id="dropdown" class="dropdown">
+                    <p>Healthcare</p>
+                    <p>Technology</p>
+                    <p>Town</p>
+                    <p>Earth</p>
+                    <p>Tax</p>
+                    <p>Republican</p>
+                    <p>Democrat</p>
+                    <p>Money</p>
+                    <p>Company</p>
+                    <p>Navy</p>
+                    <p>Airforce</p>
+                    <p>Army</p>
+                </div>
+            </span>
+        </div> 
+      
+        <div class="tagline">
+            How would you improve 
+          
+        </div>
+    </div>
+    <div class="help-icon">?</div>
+</body>
+</html>
